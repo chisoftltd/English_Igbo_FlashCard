@@ -40,7 +40,6 @@ def flip_card():
 #   --------------------------- REMOVE KNOWN WORD FROM THE DICT ------------------------------------
 def is_known():
     to_learn.remove(selected_word)
-    print(len(to_learn))
     new_data = pandas.DataFrame(to_learn)
     new_data.to_csv("data/words_to_know.csv", index=False)
     next_card()
@@ -57,7 +56,7 @@ card_back = PhotoImage(file="images/card_back.png")
 canvas = Canvas(width=800, height=526)
 canvas_front = canvas.create_image(400, 263, image=card_front)
 canvas.config(bg=BACKGROUND_COLOR, highlightthickness=0)
-card_title = canvas.create_text(400, 150, text="", fill="black", font=(FONT_NAME, 40, "italic"))
+card_title = canvas.create_text(400, 150, text="", fill="black", width=500, font=(FONT_NAME, 40, "italic"))
 card_word = canvas.create_text(400, 300, text="", fill="black", font=(FONT_NAME, 60, "bold"))
 canvas.grid(row=0, column=0, columnspan=2)
 
